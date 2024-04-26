@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <div class="row justify-content-md-center m-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h2>[[#{login.login}]]</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post"
+                              th:action="@{/login}">
+                            <div class="form-group row my-3">
+                                <label class="col-md-5 my-auto" 
+                                       for="username">
+                                    <i class="fas fa-user-lock"></i>[[#{login.username}]]
+                                </label>
+                                <div class="col-md-7 my-auto">
+                                    <input class="form-control col-md-7 my-auto" 
+                                           type="text" 
+                                           name="username"
+                                           id="username"/> 
+
+                                </div>  
+                                <div class="form-group row my-3">
+                                    <label class="col-md-5 my-auto" 
+                                           for="password">
+                                        <i class="fas fa-key"></i>[[#{login.password}]]
+                                    </label>
+                                    <div class="col-md-7 my-auto">
+                                        <input class="form-control col-md-7 my-auto" 
+                                               type="password" 
+                                               name="password"
+                                               id="password"/> 
+
+                                    </div> 
+                                </div>
+                                <div class="card-footer col text-center">
+                                    <button class="btn btn-primary" >
+                                        <a th:href="@{/registro/nuevo}" 
+                                           class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
+                                    <button class="btn btn-info" >                                        
+                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
+                                    <button class="btn btn-success" type="submit">
+                                        <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                            [[#{login.login}]]</span></button>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <footer th:replace="~{layout/plantilla :: footer}"/>
+
+</body>
+</html>
